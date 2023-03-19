@@ -21,9 +21,18 @@ RUN apt-get install -y php${PHP_VERSION} && \
 
 COPY bin /usr/local/bin
 
-RUN php-ext-zstd.sh ${PHP_VERSION}
+RUN install-kjdev-php-ext.sh ${PHP_VERSION} "zstd"
+RUN install-kjdev-php-ext.sh ${PHP_VERSION} "lz4"
+RUN install-kjdev-php-ext.sh ${PHP_VERSION} "brotli"
+RUN install-kjdev-php-ext.sh ${PHP_VERSION} "snappy"
+RUN install-kjdev-php-ext.sh ${PHP_VERSION} "bzip3"
 
-COPY bin /usr/local/bin
+#RUN apt-get install -y liblzma-dev
+#RUN install-kjdev-php-ext.sh ${PHP_VERSION} "xz"
+
+#RUN apt-get install -y libz-dev
+#RUN install-kjdev-php-ext.sh ${PHP_VERSION} "zopfli"
+
 COPY etc/php/ /etc/php/${PHP_VERSION}/
 
 #RUN install-composer.sh
