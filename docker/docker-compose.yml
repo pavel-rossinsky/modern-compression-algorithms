@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
     ca-app:
-        build: ./build/php-cli
+        build: ./build/ca-app
         container_name: compression-algorithms
         environment:
             - PHP_IDE_CONFIG=serverName=compression-algorithms
