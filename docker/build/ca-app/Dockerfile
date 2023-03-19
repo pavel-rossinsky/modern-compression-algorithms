@@ -7,7 +7,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update -y && \
     apt upgrade -y && \
-    apt-get install -y less
+    apt-get install -y less && \
+    apt-get install -y git
 
 RUN apt install -y software-properties-common && \
     add-apt-repository ppa:ondrej/php && \
@@ -15,7 +16,12 @@ RUN apt install -y software-properties-common && \
 
 RUN apt-get install -y php${PHP_VERSION} && \
     apt-get install -y php${PHP_VERSION}-zip && \
-    apt-get install -y php${PHP_VERSION}-xdebug
+    apt-get install -y php${PHP_VERSION}-xdebug && \
+    apt-get install -y php${PHP_VERSION}-dev 
+
+COPY bin /usr/local/bin
+
+RUN php-ext-zstd.sh ${PHP_VERSION}
 
 COPY bin /usr/local/bin
 COPY etc/php/ /etc/php/${PHP_VERSION}/
