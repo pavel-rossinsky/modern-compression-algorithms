@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+    ca-app:
+        build: ./build/php-cli
+        container_name: compression-algorithms
+        environment:
+            - PHP_IDE_CONFIG=serverName=compression-algorithms
+        volumes:
+            - ../:/var/www/html
+        networks:
+            - compression-algorithms
+networks:
+    compression-algorithms:
+        external: false
