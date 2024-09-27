@@ -35,7 +35,7 @@ RUN install-kjdev-php-ext.sh ${PHP_VERSION} "bzip3"
 
 COPY etc/php/ /etc/php/${PHP_VERSION}/
 
-#RUN install-composer.sh
+RUN install-composer.sh
 
 USER www-data:www-data
 WORKDIR /var/www/html

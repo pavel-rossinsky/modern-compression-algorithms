@@ -1,0 +1,14 @@
+{
+    "name": "pavel-rossinsky/compression-algorithms-benchmark",
+    "description": "Compression algorithms benchmark",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cab\\": "src"
+        }
+    }
+}
